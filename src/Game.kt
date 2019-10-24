@@ -11,6 +11,12 @@ fun main(args: Array<String>) {
 
     // Player status
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
+
+    castFireball(5)
+}
+
+fun castFireball(numFireballs: Int) {
+    println("A glass of Fireball springs into existence. (x$numFireballs)")
 }
 
 private fun printPlayerStatus(

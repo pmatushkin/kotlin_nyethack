@@ -4,14 +4,18 @@ fun main(args: Array<String>) {
     if (isJugglingProficient)
         swordsJuggling = 2
 
-    proficiencyCheck(swordsJuggling)
-    swordsJuggling = swordsJuggling!!.plus(1)
+    try {
+        proficiencyCheck(swordsJuggling)
+        swordsJuggling = swordsJuggling!!.plus(1)
+    } catch (e: Exception) {
+        println(e)
+    }
 
     println("You juggle $swordsJuggling swords!")
 }
 
 fun proficiencyCheck(swordsJuggling: Int?) {
-    swordsJuggling ?: throw UnskilledSwordJugglerException()
+    checkNotNull(swordsJuggling, { "Player cannot juggle swords" })
 }
 
 class UnskilledSwordJugglerException() : IllegalStateException("Player cannot juggle swords")
